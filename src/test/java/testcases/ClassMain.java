@@ -20,8 +20,7 @@ public class ClassMain {
 	@Test
 
 	public void Launch() throws MalformedURLException, InterruptedException {
-       //Xpath By Locators
-		
+       //By Locators
 		By lblAzamTvMax = By.xpath("//android.widget.TextView[@text='AZAMTV MAX']");		
 		By lbl_Language_Eng=By.xpath("//android.widget.TextView[@text='English']");
 			
@@ -32,7 +31,7 @@ public class ClassMain {
 		dc.setCapability("platformName", "Android");
 		AppiumDriver<MobileElement> driver = new AppiumDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"),
 				dc);
-        driver.resetApp();
+        driver.resetApp();//resetting to get splash screen
 		Thread.sleep(5000);
 		ClickAndroidElementOptional(driver, "get started");
 		Thread.sleep(5000);
@@ -41,23 +40,17 @@ public class ClassMain {
 		ClickAndroidElementOptional(driver, "Continue");
 		WaitForElementTobeVisible(driver, lblAzamTvMax, 10);	
 		
-		
-		
-		
+			
 		driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.Button[3]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.ImageView\r\n"
 				)).click();
-		
 		
 		Thread.sleep(6000);
 		
 				
-				
-//		driver.findElementByXPath("//android.widget.TextView[@text='Max Movies']/android.widget.ImageView").click();
-//		Thread.sleep(5000);
-//		
+
 		
 		
-		driver.quit();
+		driver.quit();//end session
 
 	}
 
